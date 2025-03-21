@@ -11,6 +11,13 @@ export default function Login() {
     const enteredPassword = password.current.value;
 
     console.log(`Email: ${enteredEmail}, Password: ${enteredPassword}`);
+
+    /*
+    Reset Form kalo pake ref tapi cara ini SANGAT TIDAK DIREKOMENDASIKAN
+    Karena langsung update value pada DOM
+    */  
+    // email.current.value = '';
+    // password.current.value = '';
   }
 
   return (

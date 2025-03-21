@@ -11,6 +11,14 @@ export default function Login() {
   function handleSubmit(event) {
     event.preventDefault(); // ini agar form submit nggak refresh page
     console.log(enteredValues);
+
+    /*
+    Reset Form kalo pake state
+    */  
+    // setEnteredValues({
+    //   email: '',
+    //   password: ''
+    // });
   }
 
   function handleInputChange(identifier, value) {

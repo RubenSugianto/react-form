@@ -20,6 +20,9 @@ export default function Signup() {
         // masukan data yg tadi diambil ke dalam
         data.acquisition = acquisitionChannel;
         console.log(data);
+
+        // kosongkan form setelah submit (reset form)
+        event.target.reset();
     }
     return (
       <form onSubmit={handleSubmit}>
@@ -108,12 +111,13 @@ export default function Signup() {
         </div>
   
         <p className="form-actions">
-          <button type="reset" className="button button-flat">
-            Reset
-          </button>
-          <button type="submit" className="button">
-            Sign up
-          </button>
+            {/* Type Reset otomatis reset seluruh form */}
+            <button type="reset" className="button button-flat">
+                Reset
+            </button>
+            <button type="submit" className="button">
+                Sign up
+            </button>
         </p>
       </form>
     );
