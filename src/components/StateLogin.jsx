@@ -1,12 +1,15 @@
 import { useState } from 'react';
 
-export default function Login() {
+export default function StateLogin() {
   // const [enteredEmail, setEnteredEmail] = useState('');
   // const [enteredPassword, setEnteredPassword] = useState('');
   const [enteredValues, setEnteredValues] = useState({
     email: '',
     password: ''
   });
+
+  const emailIsInvalid = 
+    enteredValues.email !== '' && !enteredValues.email.includes('@');
 
   function handleSubmit(event) {
     event.preventDefault(); // ini agar form submit nggak refresh page
@@ -50,6 +53,9 @@ export default function Login() {
             onChange={(event) => handleInputChange('email', event.target.value)} 
             value={enteredValues.email}
           />
+          <div className="control-error">
+            {emailIsInvalid && <p>Please enter a valid email address.</p>}
+            </div>
         </div>
 
         <div className="control no-margin">
