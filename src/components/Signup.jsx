@@ -1,6 +1,28 @@
 export default function Signup() {
+    function handleSubmit(event) {
+        // biar ga ngeload page ulang
+        event.preventDefault();
+
+        // ini FormData contructor dari browser, dan event.target itu kek FORM nya gitu la intinya
+        // SYARATNYA SETIAP BAGIAN FORM HARUS ADA NAMENYA KARNA DIA BACA DARI SITU
+        const fd = new FormData(event.target);
+
+        // kalo mau ambil valuenya secara spesifik
+        const enteredEmail = fd.get('email');
+        const enteredPassword = fd.get('password');
+
+        // buat ambil checkbox (ga ke detect karna dia namanya sama tp ada banyak)
+        const acquisitionChannel = fd.getAll('acquisition');
+
+        // ambil semua value-value nya di form, kemudian diubah ke object dalam bentuk key value pairs
+        const data = Object.fromEntries(fd.entries());
+
+        // masukan data yg tadi diambil ke dalam
+        data.acquisition = acquisitionChannel;
+        console.log(data);
+    }
     return (
-      <form>
+      <form onSubmit={handleSubmit}>
         <h2>Welcome on board!</h2>
         <p>We just need a little bit of data from you to get you started 🚀</p>
   
